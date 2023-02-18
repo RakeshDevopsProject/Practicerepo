@@ -12,7 +12,7 @@ resource "aws_instance" "sonarqube" {
   tag = {
     Name = "SonarQubeServer"
   }
-
+}
 # Define an output for the instance's public IP address
 output "sonarqube_public_ip" {
   value = aws_instance.sonarqube.public_ip
