@@ -9,7 +9,7 @@ resource "aws_instance" "sonarqube" {
   instance_type = "t2.medium"             # Use t2.medium instance type
   key_name      = "Myserver1"         # Replace with your key name
   #vpc_security_group_ids = ["sg-0123456789abcdef"]  # Replace with your security group ID
-  tag = {
+  tags = {
     Name = "SonarQubeServer"
   }
 }
