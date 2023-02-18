@@ -1,4 +1,3 @@
-
 # Configure the AWS provider
 provider "aws" {
   region = "us-east-1"  # Replace with your preferred region
@@ -27,4 +26,3 @@ resource "aws_instance" "sonarqube" {
 output "sonarqube_public_ip" {
   value = aws_instance.sonarqube.public_ip
 }
-
