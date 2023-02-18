@@ -1,0 +1,46 @@
+---
+- hosts: SonarQubeServer
+  become: yes
+
+  tasks:
+    - name: Install Java
+      yum:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Download and extract SonarQube
+      get_url:
+        url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.1.0.47736.zip
+        dest: /tmp/sonarqube.zip
+      unarchive:
+        src: /tmp/sonarqube.zip
+        dest: /opt
+        remote_src: yes
+        creates: /opt/sonarqube-9.1.0.47736
+
+    - name: Create sonar user
+      user:
+        name: sonar
+        system: yes
+        home: /opt/sonarqube-9.1.0.47736
+        shell: /bin/bash
+
+    - name: Configure SonarQube properties
+      copy:
+        src: sonar.properties
+        dest: /opt/sonarqube-9.1.0.47736/conf/sonar.properties
+        owner: sonar
+        group: sonar
+        mode: '0644'
+
+    - name: Create SonarQube service
+      copy:
+        src: sonar.service
+        dest: /etc/systemd/system/sonar.service
+        mode: '0644'
+      systemd:
+        daemon_reload: yes
+        name: sonar
+        enabled: yes
+        state: started
+...
