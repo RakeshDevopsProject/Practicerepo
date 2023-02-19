@@ -6,6 +6,10 @@
       yum:
         name: java-11-openjdk
         state: present
+    - name: Download unzip
+      yum:
+        name: unzip
+        state: present
     - name: Download and extract SonarQube
       get_url:
         url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.1.0.47736.zip
