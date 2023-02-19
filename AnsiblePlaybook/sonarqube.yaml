@@ -14,8 +14,7 @@
       copy:
         src: /tmp/sonarqube-9.1.0.47736.zip 
         dest: /usr/local/   
-    - name: Rename the sonarqube url 
-      shell: mv /usr/local/sonarqube-9.1.0.47736.zip /usr/local/sonarqube   
+    
     - name: Unpacking the archive
       unarchive:
         src: /usr/local/sonarqube
