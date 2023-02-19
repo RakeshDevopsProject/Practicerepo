@@ -4,7 +4,7 @@
   tasks:
     - name: Install Java
       yum:
-        name: openjdk-11-jdk
+        name: java-11-openjdk
         state: present
     - name: Download and extract SonarQube
       get_url:
