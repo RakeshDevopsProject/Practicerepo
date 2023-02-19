@@ -1,6 +1,7 @@
 ---
 - hosts: SonarQubeServer
   become: true
+  become_user: sonar
   tasks:
     - name: Install java
       yum:
