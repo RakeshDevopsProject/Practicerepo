@@ -1,7 +1,6 @@
 ---
 - hosts: SonarQubeServer
   become: true
-  become_user: sonar
   tasks:
     - name: Install java
       yum:
@@ -22,7 +21,7 @@
         line: 'sonar ALL=(ALL) NOPASSWD:ALL'
         validate: 'visudo -cf %s'
         state: present    
-    
+        become_user: sonar     
   #  - name: Rename the sonarqube url 
    #   shell: mv /usr/local/sonarqube-9.1.0.47736 /usr/local/sonarqube   
   #  - name: Unpacking the archive
