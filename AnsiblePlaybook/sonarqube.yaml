@@ -16,7 +16,7 @@
         dest: /usr/local   
         remote_src: yes
     - name: Rename the sonarqube url 
-      shell: mv /usr/local/sonarqube-9.1.0.47736.zip /usr/local/sonarqube   
+      shell: mv /usr/local/sonarqube-9.1.0.47736 /usr/local/sonarqube   
     - name: Unpacking the archive
       unarchive:
         src: /usr/local/sonarqube
