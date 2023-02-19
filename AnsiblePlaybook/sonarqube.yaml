@@ -14,7 +14,7 @@
       copy:
         src: /tmp/sonarqube-9.1.0.47736.zip 
         dest: /usr/local/   
-    
+        remote_src: yes
     - name: Unpacking the archive
       unarchive:
         src: /usr/local/sonarqube
