@@ -26,13 +26,13 @@
         system: yes
         home: /opt/sonarqube-9.1.0.47736
         shell: /bin/bash
-    - name: Configure SonarQube properties
-      copy:
-        src: sonar.properties
-        dest: /opt/sonarqube-9.1.0.47736/conf/sonar.properties
-        owner: sonar
-        group: sonar
-        mode: '0755'
+   # - name: Configure SonarQube properties
+   #   copy:
+   #     src: sonar.properties
+   #     dest: /opt/sonarqube-9.1.0.47736/conf/sonar.properties
+   #     owner: sonar
+   #     group: sonar
+   #     mode: '0755' 
     - name: Create SonarQube service
       copy:
         src: sonar.service
