@@ -29,12 +29,12 @@
         owner: sonar
         group: sonar
         mode: '0755'
-
     - name: Create SonarQube service
       copy:
         src: sonar.service
         dest: /etc/systemd/system/sonar.service
         mode: '0755'
+    - name: Started sonarqube
       systemd:
         daemon_reload: yes
         name: sonar
